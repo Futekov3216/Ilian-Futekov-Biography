@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import {useTypewriter} from '@hooks/useTypewriter';
+import { useTypewriter } from '@hooks/useTypewriter';
+import { FaLinkedin, FaGithub, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
+import { useCallback } from 'react';
+import { loadSlim } from "tsparticles-slim";
+import Particles from "react-particles";
+import { theme } from '@styles/theme';
 
 const HeroSection = styled(motion.section)`
-  grid-area: hero;
   min-height: calc(100vh - 4rem);
   display: flex;
   flex-direction: column;
@@ -14,36 +18,79 @@ const HeroSection = styled(motion.section)`
   position: sticky;
   top: 2rem;
   align-self: start;
+  width: 100%;
+  overflow: hidden;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     position: relative;
     top: 0;
     min-height: auto;
+    padding: 3rem 2rem;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 2rem 1.5rem;
   }
 `;
 
+const ParticlesContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: inherit;
+  overflow: hidden;
+`;
+
 const HeroContent = styled.div`
-    max-width: 800px;
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     position: relative;
     top: 0;
-    min-height: 380px;
+    min-height: 300px;
+    width: 100%;
   }
 `;
 
 const TextContainer = styled.div`
-  min-height: 2rem; // Increased from 5.5rem to ensure no pushing
+  min-height: 2rem;
   margin-bottom: 1rem;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-bottom: 0.5rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
 `;
 
 const SubtitleContainer = styled.div`
-  min-height: 1rem; // Increased from 3.5rem to ensure no pushing
+  min-height: 1rem;
   margin-bottom: 2rem;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-bottom: 1.5rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
 `;
 
 const DescriptionContainer = styled.div`
-  min-height: 8rem; // Increased from 6rem to ensure no pushing
+  min-height: 8rem;
   margin-bottom: 2rem;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    min-height: 10rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
 `;
 
 const Title = styled(motion.h1)`
@@ -89,6 +136,48 @@ const Cursor = styled(motion.span)`
   vertical-align: middle;
 `;
 
+const ContactsContainer = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+`;
+
+const ContactItem = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  color: ${({ theme }) => theme.colors.text};
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 1rem;
+  }
+`;
+
+const ContactIcon = styled.div`
+  color: ${({ theme }) => theme.colors.primary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+`;
+
+const ContactLink = styled.a`
+  color: ${({ theme }) => theme.colors.text};
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`;
+
+const ContactText = styled.span`
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+`;
+
 const Hero = () => {
   const nameAnimation = useTypewriter({
     text: "Ilian Futekov",
@@ -97,7 +186,7 @@ const Hero = () => {
   });
 
   const titleAnimation = useTypewriter({
-    text: "Frontend Developer",
+    text: "Javscript Developer",
     startDelay: nameAnimation.isComplete ? 100 : 2000,
     delay: 20
   });
@@ -108,8 +197,125 @@ const Hero = () => {
     delay: 10
   });
 
+  // Animation variants
+  const contactsContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: descAnimation.isComplete ? 0.2 : 2.5,
+      }
+    }
+  };
+
+  const contactItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.5
+      }
+    }
+  };
+
+  // Initialize particles with slim version
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async () => {
+    // Optional callback function when particles are loaded
+  }, []);
+
   return (
     <HeroSection id="hero">
+      <ParticlesContainer>
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          loaded={particlesLoaded}
+          options={{
+            fullScreen: {
+              enable: false
+            },
+            fpsLimit: 60,
+            interactivity: {
+              events: {
+                onClick: {
+                  enable: false,
+                  mode: "push"
+                },
+                onHover: {
+                  enable: false,
+                  mode: "repulse"
+                },
+                resize: true
+              },
+              modes: {
+                repulse: {
+                  distance: 100,
+                  duration: 0.4
+                }
+              }
+            },
+            particles: {
+              color: {
+                value: theme.colors.primary
+              },
+              links: {
+                color: theme.colors.accent,
+                distance: 150,
+                enable: true,
+                opacity: 0.3,
+                width: 1
+              },
+              collisions: {
+                enable: true
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outModes: {
+                  default: "out"
+                },
+                random: false,
+                speed: 0.6,
+                straight: false
+              },
+              number: {
+                density: {
+                  enable: true,
+                  area: 800
+                },
+                value: 80
+              },
+              opacity: {
+                value: 0.3
+              },
+              shape: {
+                type: "circle"
+              },
+              size: {
+                value: { min: 1, max: 3 }
+              }
+            },
+            detectRetina: true,
+            style: {
+              position: "absolute"
+            }
+          }}
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            top: 0,
+            left: 0
+          }}
+        />
+      </ParticlesContainer>
+
       <HeroContent>
         <TextContainer>
           <Title>
@@ -135,6 +341,46 @@ const Hero = () => {
             )}
           </Description>
         </DescriptionContainer>
+
+        <ContactsContainer
+          variants={contactsContainerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <ContactItem variants={contactItemVariants}>
+            <ContactIcon>
+              <FaEnvelope />
+            </ContactIcon>
+            <ContactLink href="mailto:ilianfutekov3216@gmail.com">
+              <ContactText>ilianfutekov3216@gmail.com</ContactText>
+            </ContactLink>
+          </ContactItem>
+
+          <ContactItem variants={contactItemVariants}>
+            <ContactIcon>
+              <FaMapMarkerAlt />
+            </ContactIcon>
+            <ContactText>Bulgaria/Sofia</ContactText>
+          </ContactItem>
+
+          <ContactItem variants={contactItemVariants}>
+            <ContactIcon>
+              <FaLinkedin />
+            </ContactIcon>
+            <ContactLink href="https://www.linkedin.com/in/ilian-futekov-12375912b/" target="_blank" rel="noopener noreferrer">
+              <ContactText>/ilian-futekov</ContactText>
+            </ContactLink>
+          </ContactItem>
+
+          <ContactItem variants={contactItemVariants}>
+            <ContactIcon>
+              <FaGithub />
+            </ContactIcon>
+            <ContactLink href="https://github.com/Futekov3216" target="_blank" rel="noopener noreferrer">
+              <ContactText>/Futekov3216</ContactText>
+            </ContactLink>
+          </ContactItem>
+        </ContactsContainer>
       </HeroContent>
     </HeroSection>
   );

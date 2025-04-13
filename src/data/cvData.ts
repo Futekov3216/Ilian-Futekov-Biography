@@ -2,71 +2,93 @@ import { Experience, Skill, Education } from '../types/cv.types';
 
 export const experiences: Experience[] = [
   {
-    company: "Tech Company A",
-    position: "Senior Frontend Developer",
-    period: "2023 - Present",
+    company: "EGT Digital",
+    position: "ReactJS Developer",
+    period: "Nov 2021 - Present",
     description: [
-      "Led development of modern React applications using TypeScript and Vite",
-      "Implemented CI/CD pipelines using Docker and GitHub Actions",
-      "Mentored junior developers and conducted code reviews"
+      "Creating various Gambling games using ReactJS with TypeScript",
+      "Working with Adobe XD, Figma, Jira for design implementation",
+      "Using Git (Bitbucket) for version control",
+      "Working with CI/CD tools like Docker and Jenkins"
     ],
-    technologies: ["React", "TypeScript", "Docker", "Vite", "Styled Components"]
+    technologies: ["ReactJS", "TypeScript", "Docker", "Jenkins", "Bash scripting", "Figma", "Jira"]
   },
   {
-    company: "Tech Company B",
-    position: "Frontend Developer",
-    period: "2021 - 2023",
+    company: "Hostopia",
+    position: "Front-end developer",
+    period: "May 2019 - Nov 2021",
     description: [
-      "Developed responsive web applications using React and TypeScript",
-      "Optimized application performance and implemented best practices",
-      "Collaborated with UI/UX team for better user experience"
+      "Maintained and developed a site builder (drag and drop type)",
+      "Worked with MooTools, ReactJS, and JavaScript",
+      "Used MacOS, Gitlab, and Docker for development"
     ],
-    technologies: ["React", "TypeScript", "Redux", "SASS", "Jest"]
+    technologies: ["ReactJS", "JavaScript", "MooTools", "Docker", "Gitlab", "MacOS"]
+  },
+  {
+    company: "EGT Interactive",
+    position: "JavaScript Developer",
+    period: "May 2018 - May 2019",
+    description: [
+      "FULL STACK DEV WORK: Developed virtual Casino with Node.js(express), MongoDB, React.js",
+      "FRONT-END-DEV WORK: Created various Gambling games using Vue.js, ES6, Web Sockets and SASS"
+    ],
+    technologies: ["Node.js", "MongoDB", "React.js", "Vue.js", "ES6", "Web Sockets", "SASS"]
+  },
+  {
+    company: "Economedia",
+    position: "Front End Developer",
+    period: "January 2016 - November 2017",
+    description: [
+      "Converted pages from PSD to HTML using HTML/CSS/JavaScript/jQuery",
+      "Worked closely with back-end developers for debugging and implementing new HTML pages",
+      "Maintained and improved the client-side of sites including dnevnik.bg, capital.bg, bacchus.bg",
+      "Finished projects including capital.bg/k100-2017",
+      "Developed rich media ad formats using HTML/CSS/Javascript/jQuery and implementing them to work through DFP"
+    ],
+    technologies: ["HTML", "CSS", "JavaScript", "jQuery", "Linux/ubuntu", "SVN", "Redmine"]
+  },
+  {
+    company: "Website.bg",
+    position: "Support",
+    period: "January 2015 - October 2015",
+    description: [
+      "Communicated with customers through phone or e-mail for website issues",
+      "Worked with HTML/CSS for website modifications",
+      "Managed and created Google AdWords campaigns"
+    ],
+    technologies: ["HTML", "CSS", "Google AdWords"]
   }
 ];
 
 export const skills: Skill[] = [
   {
     category: "Frontend",
-    items: ["React", "TypeScript", "JavaScript", "HTML", "CSS", "SASS", "Vue.js", "Redux"]
+    items: ["JavaScript", "ReactJS", "TypeScript", "Vue.js", "HTML", "CSS", "SASS", "jQuery"]
+  },
+  {
+    category: "Backend",
+    items: ["Node.js", "Express", "MongoDB"]
   },
   {
     category: "Tools & Technologies",
-    items: ["Docker", "Git", "Vite", "Webpack", "Bash", "Postman", "Figma", "Cypress"]
+    items: ["Git", "Docker", "Jenkins", "Jira", "Figma", "Adobe XD", "Bash scripting", "Linux"]
   },
   {
-    category: "Soft Skills",
-    items: ["Team Leadership", "Problem Solving", "Communication", "Mentoring"]
+    category: "Interests",
+    items: ["Linux", "Python", "Firebase", "CTFs"]
   }
 ];
 
 export const education: Education[] = [
   {
-    institution: "University of Technology",
-    degree: "Master of Science",
-    field: "Computer Science",
-    period: "2019 - 2021",
+    institution: "UNIVERSITY of LIBRARY STUDIES and INFORMATION TECHNOLOGIES",
+    degree: "Bachelor's degree",
+    field: "Information Technology",
+    period: "September 2009 - May 2013",
     description: [
-      "Specialized in Software Engineering and Distributed Systems",
-      "Research focus on Cloud Computing and Microservices Architecture"
-    ],
-    achievements: [
-      "Graduated with Distinction",
-      "Published 2 research papers in international conferences"
-    ]
-  },
-  {
-    institution: "Tech Institute",
-    degree: "Bachelor of Science",
-    field: "Software Engineering",
-    period: "2015 - 2019",
-    description: [
-      "Major in Full Stack Development",
-      "Minor in Artificial Intelligence"
-    ],
-    achievements: [
-      "Dean's List for all semesters",
-      "Led the university's programming team"
+      "Courses included: Computer Architectures, C++, C#, Operating Systems, Computer Networks and Communications",
+      "Database design, MySQL, Artificial intelligence and expert systems",
+      "Application software, Information Management"
     ]
   }
 ];

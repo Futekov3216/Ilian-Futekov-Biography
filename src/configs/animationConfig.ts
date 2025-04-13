@@ -14,10 +14,10 @@ export const enterAnimation = {
     },
     Education: {
         ...reused,
-        transition: { duration: 0.5, delay: 1.1 }
+        transition: { duration: 0.5, delay: 1.6 }
     },
     Skills: {
         ...reused,
-        transition: { duration: 0.5, delay: 1.6 }
+        transition: { duration: 0.5, delay: 1.1 }
     },
 }

@@ -5,10 +5,16 @@ import { enterAnimation } from '@configs/animationConfig';
 import { FaGraduationCap } from 'react-icons/fa';
 
 const EducationSection = styled(motion.section)`
-  grid-area: education;
   padding: 2rem;
   background: ${({ theme }) => theme.colors.accent}10;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 1.5rem;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
@@ -18,6 +24,11 @@ const SectionTitle = styled(motion.h2)`
   display: flex;
   align-items: center;
   gap: 2%;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const IconWrapper = styled.span`
@@ -26,10 +37,15 @@ const IconWrapper = styled.span`
 `;
 
 const EducationGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   width: 100%;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 `;
 
 const EducationCard = styled(motion.div)`
@@ -38,9 +54,16 @@ const EducationCard = styled(motion.div)`
   padding: 2rem;
   margin-bottom: 2rem;
   transition: transform ${({ theme }) => theme.transitions.standard};
+  flex: 1 0 300px;
 
   &:hover {
     transform: translateY(-5px);
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex: 1 0 100%;
   }
 `;
 
@@ -48,12 +71,20 @@ const Institution = styled.h3`
   color: ${({ theme }) => theme.colors.primary};
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Degree = styled.h4`
   color: ${({ theme }) => theme.colors.secondary};
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Field = styled.p`

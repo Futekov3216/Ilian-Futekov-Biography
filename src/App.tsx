@@ -19,29 +19,34 @@ const AppContainer = styled.div`
 const MainContent = styled.main`
   width: 100%;
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas: 
-    "hero content";
-  gap: 1rem;
+  display: flex;
+  flex-direction: row;
   padding: 2rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-      "hero"
-      "content";
+    flex-direction: column;
+  }
+`
+
+const HeroSection = styled.div`
+  flex: 1;
+  margin-right: 1rem;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-right: 0;
+    margin-bottom: 1rem;
   }
 `
 
 const ContentSection = styled.div`
-  grid-area: content;
+  flex: 2;
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding-right: 1rem;
+  overflow-x: hidden;
 
   /* Styling the scrollbar */
   &::-webkit-scrollbar {
@@ -74,11 +79,13 @@ const App = () => {
       <GlobalStyles />
       <AppContainer>
         <MainContent>
-          <Hero />
+          <HeroSection>
+            <Hero />
+          </HeroSection>
           <ContentSection>
             <Experience experiences={experiences} />
-            <Education education={education} />
             <Skills skills={skills} />
+            <Education education={education} />
           </ContentSection>
         </MainContent>
       </AppContainer>

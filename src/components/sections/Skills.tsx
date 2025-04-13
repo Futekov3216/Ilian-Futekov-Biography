@@ -15,7 +15,13 @@ import {
   FaUsers,
   FaLightbulb,
   FaComments,
-  FaChalkboardTeacher
+  FaChalkboardTeacher,
+  FaNodeJs,
+  FaLinux,
+  FaPython,
+  FaShieldAlt,
+  FaJenkins,
+  FaJira,
 } from 'react-icons/fa';
 import { 
   SiTypescript, 
@@ -25,34 +31,53 @@ import {
   SiWebpack,
   SiGnubash,
   SiPostman,
-  SiCypress
+  SiCypress,
+  SiExpress,
+  SiMongodb,
+  SiFirebase,
+  SiJquery,
+  SiAdobexd
 } from 'react-icons/si';
 
 const SkillsSection = styled(motion.section)`
-  grid-area: skills;
   padding: 2%;
   background: ${({ theme }) => theme.colors.accent}10;
   border-radius: 1%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 30px 4%;
+  }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 60px 5%;
+    padding: 20px 3%;
   }
 `;
 
 const SkillsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2%;
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: 300%;
+  font-size: 250%;
   color: ${({ theme }) => theme.colors.secondary};
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   display: flex;
   align-items: center;
   gap: 2%;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 200%;
+    margin-bottom: 4%;
+  }
 `;
 
 const IconWrapper = styled.span`
@@ -61,49 +86,71 @@ const IconWrapper = styled.span`
 `;
 
 const SkillCategoryContainer = styled(motion.div)`
-  margin-bottom: 2%;
+  margin-bottom: 1.5%;
+  flex: 1;
+  min-width: 200px;
+  padding-right: 1.5%;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
+    padding-right: 0;
+  }
 `;
 
 const CategoryTitle = styled.h3`
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 150%;
-  margin-bottom: 1%;
+  font-size: 130%;
+  margin-bottom: 0.8%;
 `;
 
 const SkillsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: 1.5%;
+  }
 `;
 
 const SkillItem = styled(motion.div)`
   background: ${({ theme }) => theme.colors.accent};
   color: ${({ theme }) => theme.colors.text};
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 0.6rem;
+  border-radius: 6px;
   text-align: center;
   transition: all ${({ theme }) => theme.transitions.standard};
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-height: 50px;
+  min-height: 40px;
+  flex: 1 0 120px;
+  margin-bottom: 2%;
 
   &:hover {
     background: ${({ theme }) => theme.colors.primary}20;
     color: ${({ theme }) => theme.colors.primary};
   }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 0.5rem;
+    min-height: 36px;
+    flex: 1 0 100px;
+  }
 `;
 
 const SkillIcon = styled.div`
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 24px;
+  min-width: 20px;
+  margin-right: 8px;
 `;
 
 const SkillText = styled.span`
   flex: 1;
+  font-size: 0.9rem;
 `;
 
 interface SkillsProps {
@@ -116,6 +163,7 @@ const Skills = ({ skills }: SkillsProps) => {
     if (category === "Frontend") {
       switch (skill) {
         case 'React':
+        case 'ReactJS':
           return <FaReact />;
         case 'TypeScript':
           return <SiTypescript />;
@@ -131,6 +179,21 @@ const Skills = ({ skills }: SkillsProps) => {
           return <FaVuejs />;
         case 'Redux':
           return <SiRedux />;
+        case 'jQuery':
+          return <SiJquery />;
+        case 'MooTools':
+          return <SiJavascript />;
+        default:
+          return null;
+      }
+    } else if (category === "Backend") {
+      switch (skill) {
+        case 'Node.js':
+          return <FaNodeJs />;
+        case 'Express':
+          return <SiExpress />;
+        case 'MongoDB':
+          return <SiMongodb />;
         default:
           return null;
       }
@@ -145,6 +208,7 @@ const Skills = ({ skills }: SkillsProps) => {
         case 'Webpack':
           return <SiWebpack />;
         case 'Bash':
+        case 'Bash scripting':
           return <SiGnubash />;
         case 'Postman':
           return <SiPostman />;
@@ -152,6 +216,14 @@ const Skills = ({ skills }: SkillsProps) => {
           return <FaFigma />;
         case 'Cypress':
           return <SiCypress />;
+        case 'Jenkins':
+          return <FaJenkins />;
+        case 'Jira':
+          return <FaJira />;
+        case 'Adobe XD':
+          return <SiAdobexd />;
+        case 'Linux':
+          return <FaLinux />;
         default:
           return null;
       }
@@ -165,6 +237,19 @@ const Skills = ({ skills }: SkillsProps) => {
           return <FaComments />;
         case 'Mentoring':
           return <FaChalkboardTeacher />;
+        default:
+          return null;
+      }
+    } else if (category === "Interests") {
+      switch (skill) {
+        case 'Linux':
+          return <FaLinux />;
+        case 'Python':
+          return <FaPython />;
+        case 'Firebase':
+          return <SiFirebase />;
+        case 'CTFs':
+          return <FaShieldAlt />;
         default:
           return null;
       }
