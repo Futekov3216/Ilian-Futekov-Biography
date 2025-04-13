@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Experience as ExperienceType } from '../../types/cv.types';
 import { enterAnimation } from '@configs/animationConfig';
+import { MdWork } from 'react-icons/md';
 
 const ExperienceSection =styled(motion.section)`
   grid-area: experience;
@@ -11,9 +12,17 @@ const ExperienceSection =styled(motion.section)`
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: 2.5rem;
+  font-size: 300%;
   color: ${({ theme }) => theme.colors.secondary};
-  margin-bottom: 3rem;
+  margin-bottom: 3%;
+  display: flex;
+  align-items: center;
+  gap: 2%;
+`;
+
+const IconWrapper = styled.span`
+  display: inline-flex;
+  align-items: center;
 `;
 
 const ExperienceGrid = styled.div`
@@ -110,6 +119,9 @@ const Experience = ({ experiences }: ExperienceProps) => {
           transition={enterAnimation.Experience.transition}
     >
       <SectionTitle>
+        <IconWrapper>
+          <MdWork size="0.8em" />
+        </IconWrapper>
         Work Experience
       </SectionTitle>
       <ExperienceGrid

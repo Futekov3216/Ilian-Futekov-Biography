@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Education as EducationType } from '../../types/cv.types';
 import { enterAnimation } from '@configs/animationConfig';
+import { FaGraduationCap } from 'react-icons/fa';
 
 const EducationSection = styled(motion.section)`
   grid-area: education;
@@ -14,6 +15,14 @@ const SectionTitle = styled(motion.h2)`
   font-size: 2.5rem;
   color: ${({ theme }) => theme.colors.secondary};
   margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2%;
+`;
+
+const IconWrapper = styled.span`
+  display: inline-flex;
+  align-items: center;
 `;
 
 const EducationGrid = styled.div`
@@ -94,9 +103,10 @@ const Education = ({ education }: EducationProps) => {
       initial={enterAnimation.Education.initial}
       animate={enterAnimation.Education.animate}
       transition={enterAnimation.Education.transition}>
-      <SectionTitle
-
-      >
+      <SectionTitle>
+        <IconWrapper>
+          <FaGraduationCap size="0.8em" />
+        </IconWrapper>
         Education
       </SectionTitle>
       <EducationGrid

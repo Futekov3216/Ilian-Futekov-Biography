@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useTypewriter } from '../../hooks/useTypewriter';
+import {useTypewriter} from '@hooks/useTypewriter';
 
 const HeroSection = styled(motion.section)`
   grid-area: hero;
@@ -20,7 +20,6 @@ const HeroSection = styled(motion.section)`
     top: 0;
     min-height: auto;
   }
-
 `;
 
 const HeroContent = styled.div`
@@ -30,7 +29,22 @@ const HeroContent = styled.div`
     top: 0;
     min-height: 380px;
   }
-  `;
+`;
+
+const TextContainer = styled.div`
+  min-height: 2rem; // Increased from 5.5rem to ensure no pushing
+  margin-bottom: 1rem;
+`;
+
+const SubtitleContainer = styled.div`
+  min-height: 1rem; // Increased from 3.5rem to ensure no pushing
+  margin-bottom: 2rem;
+`;
+
+const DescriptionContainer = styled.div`
+  min-height: 8rem; // Increased from 6rem to ensure no pushing
+  margin-bottom: 2rem;
+`;
 
 const Title = styled(motion.h1)`
   font-size: 5rem;
@@ -91,28 +105,36 @@ const Hero = () => {
   const descAnimation = useTypewriter({
     text: "Specialized in building modern web applications with React, TypeScript, and Docker. Passionate about clean code and innovative solutions.",
     startDelay: titleAnimation.isComplete ? 100 : 4000,
-    delay: 20
+    delay: 10
   });
 
   return (
     <HeroSection id="hero">
       <HeroContent>
-        <Title>
-          {nameAnimation.displayText}
-          {!nameAnimation.isComplete && <Cursor animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} />}
-        </Title>
-        <Subtitle>
-          {titleAnimation.displayText}
-          {nameAnimation.isComplete && !titleAnimation.isComplete && (
-            <Cursor animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} />
-          )}
-        </Subtitle>
-        <Description>
-          {descAnimation.displayText}
-          {titleAnimation.isComplete && !descAnimation.isComplete && (
-            <Cursor animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} />
-          )}
-        </Description>
+        <TextContainer>
+          <Title>
+            {nameAnimation.displayText}
+            {!nameAnimation.isComplete && <Cursor animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} />}
+          </Title>
+        </TextContainer>
+        
+        <SubtitleContainer>
+          <Subtitle>
+            {titleAnimation.displayText}
+            {nameAnimation.isComplete && !titleAnimation.isComplete && (
+              <Cursor animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} />
+            )}
+          </Subtitle>
+        </SubtitleContainer>
+        
+        <DescriptionContainer>
+          <Description>
+            {descAnimation.displayText}
+            {titleAnimation.isComplete && !descAnimation.isComplete && (
+              <Cursor animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} />
+            )}
+          </Description>
+        </DescriptionContainer>
       </HeroContent>
     </HeroSection>
   );
