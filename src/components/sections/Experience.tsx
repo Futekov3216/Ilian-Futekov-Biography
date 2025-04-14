@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Experience as ExperienceType } from '../../types/cv.types';
+import { Experience as ExperienceType } from '@/types/cv.types';
 import { enterAnimation } from '@configs/animationConfig';
 import { MdWork, MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -332,11 +332,10 @@ interface ExperienceProps {
 
 const Experience = ({ experiences }: ExperienceProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState<'next' | 'prev'>('next');
 
   // Function to categorize technologies
   const categorizeTech = (technologies: string[]) => {
-    const frontendTech = ['React', 'ReactJS', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'SASS', 'Vue.js', 'Redux', 'Styled Components', 'jQuery', 'MooTools'];
+    const frontendTech = ['React', 'ReactJS',"Styled-components", 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'SASS', 'Vue.js', 'Redux', 'Styled Components', 'jQuery', 'MooTools'];
     const result = {
       frontend: [] as string[],
       other: [] as string[]
@@ -355,20 +354,17 @@ const Experience = ({ experiences }: ExperienceProps) => {
 
   const goNext = () => {
     if (currentIndex < experiences.length - 1) {
-      setDirection('next');
       setCurrentIndex(prev => prev + 1);
     }
   };
 
   const goPrev = () => {
     if (currentIndex > 0) {
-      setDirection('prev');
       setCurrentIndex(prev => prev - 1);
     }
   };
 
   const goToSlide = (index: number) => {
-    setDirection(index > currentIndex ? 'next' : 'prev');
     setCurrentIndex(index);
   };
 

@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useTypewriter } from '@hooks/useTypewriter';
-import { FaLinkedin, FaGithub, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaMapMarkerAlt, FaEnvelope, FaReact, FaJs, FaHtml5, FaCss3Alt, FaNodeJs } from 'react-icons/fa';
+import { SiTypescript } from 'react-icons/si';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { useCallback } from 'react';
 import { loadSlim } from "tsparticles-slim";
 import Particles from "react-particles";
 import { theme } from '@styles/theme';
+import { Engine } from 'tsparticles-engine';
 
 const HeroSection = styled(motion.section)`
   min-height: calc(100vh - 4rem);
@@ -99,6 +102,10 @@ const Title = styled(motion.h1)`
   margin-bottom: 1rem;
   line-height: 1.1;
 
+  @media (max-width: 1366px) {
+    font-size: 4.2rem;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 3rem;
   }
@@ -109,6 +116,10 @@ const Subtitle = styled(motion.h2)`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 2rem;
   line-height: 1.2;
+
+  @media (max-width: 1366px) {
+    font-size: 2.5rem;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 2rem;
@@ -121,6 +132,10 @@ const Description = styled(motion.p)`
   max-width: 600px;
   margin-bottom: 2rem;
   line-height: 1.6;
+
+  @media (max-width: 1366px) {
+    font-size: 1.2rem;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 1.2rem;
@@ -149,6 +164,10 @@ const ContactItem = styled(motion.div)`
   gap: 1rem;
   font-size: 1.1rem;
   color: ${({ theme }) => theme.colors.text};
+  
+  @media (max-width: 1366px) {
+    font-size: 1rem;
+  }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 1rem;
@@ -220,14 +239,20 @@ const Hero = () => {
     }
   };
 
-  // Initialize particles with slim version
-  const particlesInit = useCallback(async (engine) => {
+  const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async () => {
-    // Optional callback function when particles are loaded
-  }, []);
+
+
+  // Convert React Icons to SVG strings for particles with custom color
+  const iconColor = "#64ffda10";
+  const reactSvg = encodeURIComponent(renderToStaticMarkup(<FaReact color={iconColor} />));
+  const typescriptSvg = encodeURIComponent(renderToStaticMarkup(<SiTypescript color={iconColor} />));
+  const javascriptSvg = encodeURIComponent(renderToStaticMarkup(<FaJs color={iconColor} />));
+  const htmlSvg = encodeURIComponent(renderToStaticMarkup(<FaHtml5 color={iconColor} />));
+  const cssSvg = encodeURIComponent(renderToStaticMarkup(<FaCss3Alt color={iconColor} />));
+  const nodeSvg = encodeURIComponent(renderToStaticMarkup(<FaNodeJs color={iconColor} />));
 
   return (
     <HeroSection id="hero">
@@ -235,7 +260,6 @@ const Hero = () => {
         <Particles
           id="tsparticles"
           init={particlesInit}
-          loaded={particlesLoaded}
           options={{
             fullScreen: {
               enable: false
@@ -267,7 +291,7 @@ const Hero = () => {
               links: {
                 color: theme.colors.accent,
                 distance: 150,
-                enable: true,
+                enable: false,
                 opacity: 0.3,
                 width: 1
               },
@@ -275,7 +299,7 @@ const Hero = () => {
                 enable: true
               },
               move: {
-                direction: "none",
+                direction: "top",
                 enable: true,
                 outModes: {
                   default: "out"
@@ -289,16 +313,50 @@ const Hero = () => {
                   enable: true,
                   area: 800
                 },
-                value: 80
+                value: 30
               },
               opacity: {
-                value: 0.3
+                value: 0.5
               },
               shape: {
-                type: "circle"
+                type: "image",
+                options: {
+                  image: [
+                    {
+                      src: `data:image/svg+xml,${reactSvg}`,
+                      width: 16,
+                      height: 16
+                    },
+                    {
+                      src: `data:image/svg+xml,${typescriptSvg}`,
+                      width: 16,
+                      height: 16
+                    },
+                    {
+                      src: `data:image/svg+xml,${javascriptSvg}`,
+                      width: 16,
+                      height: 16
+                    },
+                    {
+                      src: `data:image/svg+xml,${htmlSvg}`,
+                      width: 16,
+                      height: 16
+                    },
+                    {
+                      src: `data:image/svg+xml,${cssSvg}`,
+                      width: 16,
+                      height: 16
+                    },
+                    {
+                      src: `data:image/svg+xml,${nodeSvg}`,
+                      width: 16,
+                      height: 16
+                    }
+                  ]
+                }
               },
               size: {
-                value: { min: 1, max: 3 }
+                value: { min: 16, max: 20 }
               }
             },
             detectRetina: true,

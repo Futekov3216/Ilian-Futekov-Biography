@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Education as EducationType } from '../../types/cv.types';
+import { Education as EducationType } from '@/types/cv.types';
 import { enterAnimation } from '@configs/animationConfig';
 import { FaGraduationCap } from 'react-icons/fa';
 

@@ -1,17 +1,18 @@
-import { Experience, Skill, Education } from '../types/cv.types';
+import { Experience, Skill, Education } from '@/types/cv.types';
 
 export const experiences: Experience[] = [
   {
     company: "EGT Digital",
     position: "ReactJS Developer",
-    period: "Nov 2021 - Present",
+    period: `Nov 2021 - Present (as of ${new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })})`,
     description: [
       "Creating various Gambling games using ReactJS with TypeScript",
       "Working with Adobe XD, Figma, Jira for design implementation",
       "Using Git (Bitbucket) for version control",
-      "Working with CI/CD tools like Docker and Jenkins"
+      "Working with CI/CD tools like Docker and Jenkins",
+      "Automating various tasks using Bash scripting",
     ],
-    technologies: ["ReactJS", "TypeScript", "Docker", "Jenkins", "Bash scripting", "Figma", "Jira"]
+    technologies: ["ReactJS","Redux","Styled-components", "TypeScript", "Docker", "Jenkins", "Bash", "Figma", "Jira"]
   },
   {
     company: "Hostopia",
@@ -32,7 +33,7 @@ export const experiences: Experience[] = [
       "FULL STACK DEV WORK: Developed virtual Casino with Node.js(express), MongoDB, React.js",
       "FRONT-END-DEV WORK: Created various Gambling games using Vue.js, ES6, Web Sockets and SASS"
     ],
-    technologies: ["Node.js", "MongoDB", "React.js", "Vue.js", "ES6", "Web Sockets", "SASS"]
+    technologies: ["Node.js", "MongoDB", "React.js", "Vue.js", "Web Sockets", "SASS"]
   },
   {
     company: "Economedia",

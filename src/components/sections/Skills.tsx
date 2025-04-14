@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Skill } from '../../types/cv.types';
+import { Skill } from '@/types/cv.types';
 import { enterAnimation } from '@configs/animationConfig';
 import { GiSkills } from 'react-icons/gi';
 import { 
