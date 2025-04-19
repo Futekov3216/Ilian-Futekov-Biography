@@ -20,7 +20,7 @@ export default defineConfig({
     tsconfigPaths()
   ],
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
     assetsDir: 'assets',
     minify: 'esbuild',
     terserOptions: {
