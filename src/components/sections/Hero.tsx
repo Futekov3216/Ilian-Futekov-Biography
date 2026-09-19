@@ -6,7 +6,7 @@ import { SiTypescript } from 'react-icons/si';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { useCallback } from 'react';
 import { loadSlim } from "tsparticles-slim";
-import Particles from "react-particles";
+import Particles from "react-tsparticles";
 import { theme } from '@styles/theme';
 import { Engine } from 'tsparticles-engine';
 

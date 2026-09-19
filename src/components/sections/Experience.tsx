@@ -335,7 +335,7 @@ const Experience = ({ experiences }: ExperienceProps) => {
 
   // Function to categorize technologies
   const categorizeTech = (technologies: string[]) => {
-    const frontendTech = ['React', 'ReactJS',"Styled-components", 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'SASS', 'Vue.js', 'Redux', 'Styled Components', 'jQuery', 'MooTools'];
+    const frontendTech = ['React', 'ReactJS',"Styled-components", 'TypeScript', 'JavaScript', "Refine","MUI", 'HTML', 'CSS', 'SASS', 'Vue.js', 'Redux', 'Styled Components', 'jQuery', 'MooTools'];
     const result = {
       frontend: [] as string[],
       other: [] as string[]

@@ -1,18 +1,20 @@
 import { Experience, Skill, Education } from '@/types/cv.types';
-
+// as if today
+// Present (as of ${new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })})`
 export const experiences: Experience[] = [
   {
     company: "EGT Digital",
-    position: "ReactJS Developer",
-    period: `Nov 2021 - Present (as of ${new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })})`,
+    position: "JavaScript Developer",
+    period: `Nov 2021 - Sept 2026`,
     description: [
       "Creating various Gambling games using ReactJS with TypeScript",
+      "Creating a Lottery Management System (LMS) using React, Refine (library specialized for admin panels), TypeScript, MUI",
       "Working with Adobe XD, Figma, Jira for design implementation",
       "Using Git (Bitbucket) for version control",
       "Working with CI/CD tools like Docker and Jenkins",
       "Automating various tasks using Bash scripting",
     ],
-    technologies: ["ReactJS","Redux","Styled-components", "TypeScript", "Docker", "Jenkins", "Bash", "Figma", "Jira"]
+    technologies: ["ReactJS","Redux","Styled-components", "TypeScript", "Refine","MUI", "Docker", "Jenkins", "Bash", "Figma", "Jira"]
   },
   {
     company: "Hostopia",
@@ -71,13 +73,17 @@ export const skills: Skill[] = [
     items: ["Node.js", "Express", "MongoDB"]
   },
   {
+    category: "AI & LLMs",
+    items: ["MCP", "Agents", "Agent Orchestration",]
+  },
+  {
     category: "Tools & Technologies",
     items: ["Git", "Docker", "Jenkins", "Jira", "Figma", "Adobe XD", "Bash scripting", "Linux"]
   },
   {
     category: "Interests",
     items: ["Linux", "Python", "Firebase", "CTFs"]
-  }
+  },
 ];
 
 export const education: Education[] = [

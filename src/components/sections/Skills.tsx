@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Skill } from '@/types/cv.types';
 import { enterAnimation } from '@configs/animationConfig';
 import { GiSkills } from 'react-icons/gi';
-import { 
+import {
   FaReact, 
   FaHtml5, 
   FaCss3Alt, 
@@ -36,8 +36,11 @@ import {
   SiMongodb,
   SiFirebase,
   SiJquery,
-  SiAdobexd
 } from 'react-icons/si';
+import { TbBrandAdobeXd, TbAiAgents } from "react-icons/tb";
+import { VscMcp } from "react-icons/vsc";
+import { SiAgentskills } from "react-icons/si";
+
 
 const SkillsSection = styled(motion.section)`
   padding: 2%;
@@ -163,6 +166,7 @@ const Skills = ({ skills }: SkillsProps) => {
     if (category === "Frontend") {
       switch (skill) {
         case 'React':
+          return <FaReact />;
         case 'ReactJS':
           return <FaReact />;
         case 'TypeScript':
@@ -221,7 +225,7 @@ const Skills = ({ skills }: SkillsProps) => {
         case 'Jira':
           return <FaJira />;
         case 'Adobe XD':
-          return <SiAdobexd />;
+          return <TbBrandAdobeXd />;
         case 'Linux':
           return <FaLinux />;
         default:
@@ -254,7 +258,19 @@ const Skills = ({ skills }: SkillsProps) => {
           return null;
       }
     }
-    
+    else if (category === "AI & LLMs") {
+      switch (skill) {
+        case 'MCP':
+          return <VscMcp />;
+        case 'Agents':
+          return <SiAgentskills />;
+        case 'Agent Orchestration':
+          return <TbAiAgents />;
+        default:
+          return null;
+      }
+    }
+
     return null;
   };
 
