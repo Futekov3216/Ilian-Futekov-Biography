@@ -66,7 +66,7 @@ export const experiences: Experience[] = [
 export const skills: Skill[] = [
   {
     category: "Frontend",
-    items: ["JavaScript", "ReactJS", "TypeScript", "Vue.js", "HTML", "CSS", "SASS", "jQuery"]
+    items: ["JavaScript", "ReactJS", "TypeScript", "Refine","MUI", "Vue.js", "HTML", "CSS", "SASS", "jQuery"]
   },
   {
     category: "Backend",

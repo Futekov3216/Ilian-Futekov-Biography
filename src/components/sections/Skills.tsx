@@ -36,6 +36,8 @@ import {
   SiMongodb,
   SiFirebase,
   SiJquery,
+  SiRefine,
+  SiMui,
 } from 'react-icons/si';
 import { TbBrandAdobeXd, TbAiAgents } from "react-icons/tb";
 import { VscMcp } from "react-icons/vsc";
@@ -187,6 +189,10 @@ const Skills = ({ skills }: SkillsProps) => {
           return <SiJquery />;
         case 'MooTools':
           return <SiJavascript />;
+        case 'Refine':
+          return <SiRefine/>;
+        case 'MUI':
+          return <SiMui/>;
         default:
           return null;
       }
