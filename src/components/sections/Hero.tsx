@@ -205,13 +205,16 @@ const Hero = () => {
   });
 
   const titleAnimation = useTypewriter({
-    text: "Javscript Developer",
+    text: "JavaScript Developer",
     startDelay: nameAnimation.isComplete ? 100 : 2000,
     delay: 20
   });
 
   const descAnimation = useTypewriter({
-    text: "Specialized in building modern web applications with React, TypeScript, and Docker. Passionate about clean code and innovative solutions.",
+    text: `Specialized in building modern web applications with React, TypeScript.
+          Passionate about clean code, innovative solutions, and leveraging AI-assisted
+          development to improve productivity, explore new ideas, and build better
+          software.`,
     startDelay: titleAnimation.isComplete ? 100 : 4000,
     delay: 10
   });
