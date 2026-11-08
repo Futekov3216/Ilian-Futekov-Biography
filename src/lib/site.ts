@@ -69,7 +69,12 @@ export interface Copy {
     close: string
     skipToContent: string
   }
-  cta: { talk: string; whatsappMessage: string; viewProjects: string; email: string }
+  cta: {
+    talk: string
+    whatsappMessage: string
+    viewProjects: string
+    email: string
+  }
   hero: {
     eyebrow: string
     title: string
@@ -77,7 +82,12 @@ export interface Copy {
     support: string
     networkLabel: string
   }
-  services: { eyebrow: string; title: string; lead: string; items: ServiceCopy[] }
+  services: {
+    eyebrow: string
+    title: string
+    lead: string
+    items: ServiceCopy[]
+  }
   clients: {
     eyebrow: string
     title: string
@@ -125,6 +135,78 @@ interface ProjectSource {
 }
 
 const projectSources: ProjectSource[] = [
+  {
+    id: "aprovatrilha",
+    name: "AprovaTrilha",
+    year: "2026",
+    kind: {
+      en: "Exam-prep platform",
+      es: "Plataforma de preparación para exámenes",
+      pt: "Plataforma de preparação para exames",
+    },
+    description: {
+      en: "Exam-prep platform for the Brazilian Bar Exam (OAB): a Next.js 16/TypeScript web app on Postgres/Drizzle, with adaptive study plans, question practice, essay answers graded by a self-hosted LLM behind a prompt-injection guard, and a library of recommended books with Amazon affiliate links. It also has Asaas recurring billing, BullMQ background jobs, and self-hosted Docker deployment with Cloudflare Tunnel.",
+      es: "Plataforma de preparación para el examen de la Orden de Abogados de Brasil (OAB): una aplicación web en Next.js 16/TypeScript sobre Postgres/Drizzle, con planes de estudio adaptativos, práctica de preguntas, respuestas escritas corregidas por un LLM autoalojado protegido contra prompt injection y una biblioteca de libros recomendados con enlaces de afiliado de Amazon. También incluye pagos recurrentes vía Asaas, tareas en segundo plano con BullMQ y despliegue autoalojado en Docker con Cloudflare Tunnel.",
+      pt: "Plataforma de preparação para o Exame da Ordem (OAB): uma aplicação web em Next.js 16/TypeScript sobre Postgres/Drizzle, com planos de estudo adaptativos, prática de questões, respostas dissertativas corrigidas por um LLM auto-hospedado protegido contra prompt injection e uma biblioteca de livros recomendados com links de afiliado da Amazon. Também conta com pagamentos recorrentes via Asaas, tarefas em segundo plano com BullMQ e deploy auto-hospedado em Docker com Cloudflare Tunnel.",
+    },
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "BullMQ",
+      "Asaas",
+      "Docker",
+      "Cloudflare Tunnel",
+    ],
+  },
+  {
+    id: "tyche",
+    name: "Project Tyche",
+    year: "2026",
+    kind: {
+      en: "Equity research engine",
+      es: "Motor de análisis de acciones",
+      pt: "Motor de análise de ações",
+    },
+    description: {
+      en: "TypeScript engine that ingests SEC XBRL fundamentals and daily market prices into PostgreSQL via Drizzle ORM. It computes point-in-time metrics, sector-percentile scores, accounting red flags (Piotroski, Altman, Beneish) and reverse DCF valuations, served by a TanStack Start dashboard with a screener, company research pages, watchlists, a trade journal and alerts.",
+      es: "Motor en TypeScript que ingiere datos fundamentales XBRL de la SEC y precios diarios de mercado en PostgreSQL mediante Drizzle ORM. Calcula métricas point-in-time, puntuaciones por percentil sectorial, alertas contables (Piotroski, Altman, Beneish) y valoraciones por DCF inverso, servidas en un panel TanStack Start con screener, páginas de análisis de empresas, listas de seguimiento, diario de operaciones y alertas.",
+      pt: "Motor em TypeScript que ingere dados fundamentalistas XBRL da SEC e preços diários de mercado no PostgreSQL via Drizzle ORM. Calcula métricas point-in-time, pontuações por percentil setorial, alertas contábeis (Piotroski, Altman, Beneish) e valuations por DCF reverso, servidos em um painel TanStack Start com screener, páginas de análise de empresas, watchlists, diário de operações e alertas.",
+    },
+    stack: [
+      "TypeScript",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "TanStack Start",
+      "SEC XBRL",
+    ],
+  },
+  {
+    id: "mensalpix",
+    name: "MensalPix",
+    year: "2026",
+    kind: {
+      en: "Tuition billing SaaS",
+      es: "SaaS de cobro de mensualidades",
+      pt: "SaaS de cobrança de mensalidades",
+    },
+    description: {
+      en: "Multi-tenant Brazilian SaaS that automates monthly tuition collection for schools, studios and gyms: a Laravel/Inertia React platform with recurring Pix Automático and card billing through each school's own Asaas account, WhatsApp dunning reminders, automatic NFS-e invoicing, and Stripe subscription billing.",
+      es: "SaaS brasileño multi-tenant que automatiza el cobro de mensualidades para escuelas, estudios y gimnasios: una plataforma en Laravel/Inertia React con cobros recurrentes por Pix Automático y tarjeta a través de la cuenta Asaas de cada escuela, recordatorios de cobro por WhatsApp, emisión automática de NFS-e y suscripciones con Stripe.",
+      pt: "SaaS brasileiro multi-tenant que automatiza a cobrança de mensalidades para escolas, estúdios e academias: uma plataforma em Laravel/Inertia React com cobrança recorrente por Pix Automático e cartão pela conta Asaas de cada escola, lembretes de cobrança por WhatsApp, emissão automática de NFS-e e assinaturas via Stripe.",
+    },
+    stack: [
+      "Laravel",
+      "Inertia",
+      "React",
+      "Pix Automático",
+      "Asaas",
+      "WhatsApp",
+      "NFS-e",
+      "Stripe",
+    ],
+  },
   {
     id: "quienscent",
     name: "Quienscent",
